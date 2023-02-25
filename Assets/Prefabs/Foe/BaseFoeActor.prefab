@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9145620836012092127}
   - component: {fileID: 9112209780793975037}
   m_Layer: 0
-  m_Name: BaseFoe
+  m_Name: BaseFoeActor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

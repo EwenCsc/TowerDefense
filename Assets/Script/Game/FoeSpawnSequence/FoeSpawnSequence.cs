@@ -18,8 +18,8 @@
 		#endregion Fields
 
 		#region Events
-		private Action<Actor> _foeSpawnRequestedEvent = null;
-		public event Action<Actor> FoeSpawnRequested
+		private Action<FoeActor> _foeSpawnRequestedEvent = null;
+		public event Action<FoeActor> FoeSpawnRequested
 		{
 			add { _foeSpawnRequestedEvent -= value; _foeSpawnRequestedEvent += value; }
 			remove { _foeSpawnRequestedEvent -= value; }

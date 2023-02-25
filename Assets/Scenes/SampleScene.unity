@@ -1292,7 +1292,7 @@ GameObject:
   - component: {fileID: 1254780605}
   - component: {fileID: 1254780604}
   m_Layer: 0
-  m_Name: Track (1)
+  m_Name: Track
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1317,15 +1317,15 @@ MonoBehaviour:
     width: 0.2
   m_Looped: 0
   m_Waypoints:
-  - position: {x: 13.389714, y: 0, z: -9.21682}
+  - position: {x: -5, y: 0, z: -5}
     roll: 0
-  - position: {x: 3.242137, y: 0, z: -7.8030953}
+  - position: {x: 5, y: 0, z: 20}
     roll: 0
-  - position: {x: -1.9395856, y: 0, z: 2.9239879}
+  - position: {x: 15, y: 0, z: 15}
     roll: 0
-  - position: {x: 14.338051, y: 0, z: 17.489126}
+  - position: {x: 25, y: 0, z: 10}
     roll: 0
-  - position: {x: -1.522355, y: 0, z: 23.973179}
+  - position: {x: 35, y: 0, z: 35}
     roll: 0
 --- !u!4 &1254780605
 Transform:
@@ -1335,12 +1335,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254780603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.08, y: 0, z: 5.65}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2030651723}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1542511954
 GameObject:
@@ -1908,7 +1908,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3989605431031678100}
   - {fileID: 1254780605}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1927,10 +1926,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameModeSettings:
     _foeSpawnersSettings:
-    - _foeSpawnSequenceSettings: {fileID: 11400000, guid: 73edd9edefb06f5458c4947864189088, type: 2}
-      _track: {fileID: 3989605431031678099}
     - _foeSpawnSequenceSettings: {fileID: 11400000, guid: f1a8b89774a90b0458bd0c139cb671a8, type: 2}
       _track: {fileID: 1254780604}
+  _towerPrefab: {fileID: 5277006865298933443, guid: 500640f60dd2a7a4ca99130c5b4bcf93, type: 3}
 --- !u!1 &2075298059
 GameObject:
   m_ObjectHideFlags: 0
@@ -2029,64 +2027,3 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2075298059}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &3989605431031678098
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3989605431031678100}
-  - component: {fileID: 3989605431031678099}
-  m_Layer: 0
-  m_Name: Track
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &3989605431031678099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3989605431031678098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a200b19ca1a9685429ed7e043c28e904, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Resolution: 24
-  m_Appearance:
-    pathColor: {r: 0, g: 1, b: 0, a: 1}
-    inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    width: 0.2
-  m_Looped: 0
-  m_Waypoints:
-  - position: {x: 29.406315, y: 0, z: 21.163708}
-    roll: 0
-  - position: {x: 18.442604, y: 0, z: 10.123455}
-    roll: 0
-  - position: {x: 26.614092, y: 0, z: 3.0231953}
-    roll: 0
-  - position: {x: 16.148935, y: 0, z: -2.8176866}
-    roll: 0
-  - position: {x: 27.387491, y: 0, z: -11.873272}
-    roll: 0
---- !u!4 &3989605431031678100
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3989605431031678098}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2030651723}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

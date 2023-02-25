@@ -5,7 +5,7 @@ namespace TD.GameMode
 	using TD.Game;
 	using UnityEngine;
 
-	public class ActorSpawnerGameModeModule : IGameModeModule
+	public class FoeSpawnerGameModeModule : IGameModeModule
 	{
 		#region Fields
 		private FoeSpawnerSettings _foeSpawnerSettings = null;
@@ -13,8 +13,7 @@ namespace TD.GameMode
 		#endregion Fields
 
 		#region Constructor
-
-		public ActorSpawnerGameModeModule(FoeSpawnerSettings foeSpawnerSettings)
+		public FoeSpawnerGameModeModule(FoeSpawnerSettings foeSpawnerSettings)
 		{
 			_foeSpawnerSettings = foeSpawnerSettings;
 			_foeSpawnSequence = foeSpawnerSettings.FoeSpawnSequenceSettings.CreateFoeSpawnSequence();
@@ -45,11 +44,10 @@ namespace TD.GameMode
 		#endregion IGameModeModule
 
 		#region Callbacks
-		private void OnFoeSpawnRequested(Actor actorPrefab)
+		private void OnFoeSpawnRequested(FoeActor actorPrefab)
 		{
-			Actor actor = GameObject.Instantiate(actorPrefab);
-
-			actor.Init(_foeSpawnerSettings.Track, 0.0f, CinemachinePathBase.PositionUnits.Normalized);
+			FoeActorParameters parameters = new FoeActorParameters(actorPrefab.gameObject, _foeSpawnerSettings.Track, 0.0f, CinemachinePathBase.PositionUnits.Normalized);
+			ActorFactory.CreateActor(parameters);
 		}
 		#endregion Callbacks
 		#endregion Methods
