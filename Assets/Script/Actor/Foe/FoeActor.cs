@@ -3,28 +3,18 @@
 	using Cinemachine;
 	using UnityEngine;
 
-	public class FoeActor : IActor
+	public class FoeActor : IActor<FoeActorParameters>
 	{
 		#region Fields
-		private CinemachineSmoothPath _track = null;
-
 		private float _pathLength = 0.0f;
 
 		private float _currentPosition = 0.0f;
-
-		CinemachinePathBase.PositionUnits _positionUnits = CinemachinePathBase.PositionUnits.PathUnits;
 
 		private float _speed = 10.0f;
 		#endregion Fields
 
 		#region Methods
 		#region MonoBehaviour
-		protected override void OnDestroy()
-		{
-			base.OnDestroy();
-			_track = null;
-		}
-
 		protected override void Update()
 		{
 			base.Update();
@@ -44,18 +34,12 @@
 		#region Publics
 		public override void Initialize(IActorParameters parameters)
 		{
-			FoeActorParameters foeParameters = parameters as FoeActorParameters;
-			if (foeParameters == null)
-			{
-				Debug.LogError("Parameters should be FoeActorParameters");
-				return;
-			}
+			base.Initialize(parameters);
 
-			_track = foeParameters.Track;
-			_pathLength = foeParameters.Track.PathLength;
+			CinemachineSmoothPath track = ActorParameters.Track;
 
-			_positionUnits = foeParameters.PositionUnits;
-			_currentPosition = _track.PathLength * foeParameters.StartNormalizedPosition;
+			_pathLength = track.PathLength;
+			_currentPosition = track.PathLength * ActorParameters.StartNormalizedPosition;
 
 			SetPosition(_currentPosition);
 		}
@@ -64,7 +48,7 @@
 		#region Internals
 		private void SetPosition(float trackPorcent)
 		{
-			transform.position = _track.EvaluatePositionAtUnit(trackPorcent, _positionUnits);
+			transform.position = ActorParameters.Track.EvaluatePositionAtUnit(trackPorcent, ActorParameters.PositionUnits);
 		}
 		#endregion Internals
 		#endregion Methods

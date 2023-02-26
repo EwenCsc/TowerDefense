@@ -1,29 +1,28 @@
 ﻿namespace TD.Actor
 {
 	using System;
-	using UnityEngine;
 
 	public abstract class IActorParameters : IDisposable
 	{
 		#region Fields
-		private GameObject _actorPrefab = null;
+		private SpawnDataParameters _spawnDataParameters = null;
 		#endregion Fields
 
 		#region Properties
-		public GameObject ActorPrefab { get => _actorPrefab; }
+		public SpawnDataParameters BulletPrefab { get => _spawnDataParameters; }
 		#endregion Properties
 
 		#region Constructor
-		protected IActorParameters(GameObject actorPrefab)
+		protected IActorParameters(SpawnDataParameters spawnDataParameters)
 		{
-			_actorPrefab = actorPrefab;
+			_spawnDataParameters = spawnDataParameters;
 		}
 		#endregion Constructor
 
 		#region Methods
 		public virtual void Dispose()
 		{
-			_actorPrefab = null;
+			_spawnDataParameters = null;
 		}
 		#endregion Methods
 	}

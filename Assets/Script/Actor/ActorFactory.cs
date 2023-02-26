@@ -8,16 +8,20 @@
 		public static t_actor CreateActor<t_actor>(IActorParameters actorParameters)
 			where t_actor : IActor
 		{
-			GameObject gameObject = GameObject.Instantiate(actorParameters.ActorPrefab);
+			SpawnDataParameters spawnDataParameters = actorParameters.BulletPrefab;
 
-			if (gameObject.TryGetComponent(out t_actor actor) == false)
-			{
-				return null;
-			}
+			IActor actor = IActor.Instantiate(spawnDataParameters.ActorPrefab, spawnDataParameters.ActorParent);
+			actor.transform.localPosition = spawnDataParameters.ActorPosition;
+			actor.transform.localRotation = spawnDataParameters.ActorRotation;
 
 			actor.Initialize(actorParameters);
 
-			return actor;
+			if (actor is t_actor == false)
+			{
+				Debug.LogError($"Actor is not {typeof(t_actor)}. Actor is {actor.GetType()}");
+			}
+
+			return actor as t_actor;
 		}
 
 		public static IActor CreateActor(IActorParameters actorParameters)

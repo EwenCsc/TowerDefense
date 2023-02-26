@@ -18,8 +18,8 @@
 		#endregion Properties
 
 		#region Constructor
-		public FoeActorParameters(GameObject actorPrefab, CinemachineSmoothPath track, float startNormalizedPosition, CinemachinePathBase.PositionUnits positionUnits)
-			: base(actorPrefab)
+		public FoeActorParameters(SpawnDataParameters spawnDataParameters, CinemachineSmoothPath track, float startNormalizedPosition, CinemachinePathBase.PositionUnits positionUnits)
+			: base(spawnDataParameters)
 		{
 			_track = track;
 			_startNormalizedPosition = startNormalizedPosition;

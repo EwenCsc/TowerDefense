@@ -110,3 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca54621cfbc968e48a444cf37deac0b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cooldown: 0.2
+  _bulletActorPrefab: {fileID: 8348713822482260473, guid: c36a97eb09d4e0244aff7734227f0646, type: 3}

@@ -7,6 +7,8 @@
 	{
 		#region Fields
 		private TowerActor _towerActorPrefab = null;
+
+		private Vector3 _spawnPosition = Vector3.negativeInfinity;
 		#endregion Fields
 
 		#region Constructor
@@ -31,7 +33,15 @@
 		{
 			if (Input.GetMouseButtonDown(0))
 			{
-				ActorFactory.CreateActor(new TowerActorParameters(_towerActorPrefab.gameObject));
+				Vector3 mousePosition = Input.mousePosition;
+				Vector3 spawnPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+				if (Physics.Raycast(spawnPosition, Vector3.down, out RaycastHit raycastHit) == false)
+				{
+					return;
+				}
+
+				SpawnDataParameters spawnDataParameters = new SpawnDataParameters(_towerActorPrefab, raycastHit.point, Quaternion.identity);
+				ActorFactory.CreateActor(new TowerActorParameters(spawnDataParameters));
 			}
 		}
 		#endregion IGameModeModule

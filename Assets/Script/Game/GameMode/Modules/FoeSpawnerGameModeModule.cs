@@ -46,7 +46,8 @@ namespace TD.GameMode
 		#region Callbacks
 		private void OnFoeSpawnRequested(FoeActor actorPrefab)
 		{
-			FoeActorParameters parameters = new FoeActorParameters(actorPrefab.gameObject, _foeSpawnerSettings.Track, 0.0f, CinemachinePathBase.PositionUnits.Normalized);
+			SpawnDataParameters spawnDataParameters = new SpawnDataParameters(actorPrefab);
+			FoeActorParameters parameters = new FoeActorParameters(spawnDataParameters, _foeSpawnerSettings.Track, 0.0f, CinemachinePathBase.PositionUnits.Normalized);
 			ActorFactory.CreateActor(parameters);
 		}
 		#endregion Callbacks

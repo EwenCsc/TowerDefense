@@ -1,12 +1,13 @@
 ﻿namespace TD.Actor
 {
-	using UnityEngine;
-
 	public class TowerActorParameters : IActorParameters
 	{
-		public TowerActorParameters(GameObject actorPrefab) 
-			: base(actorPrefab)
+		#region Constructor
+		public TowerActorParameters(SpawnDataParameters spawnDataParameters)
+			: base(spawnDataParameters)
 		{
+
 		}
+		#endregion Constructor	
 	}
 }
